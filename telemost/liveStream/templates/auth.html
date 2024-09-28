@@ -1,0 +1,50 @@
+{% extends 'doctype.html'%}
+
+
+
+
+{%block section1%}
+<p style="text-align: center; color: #fff; display: none;">{{now}}</p>
+<div class="box_auth">
+    <div class="form_container">
+        <div class="wrapper_form">
+            <p class="title">Посещаемость</p>
+    
+    <form action="" method="POST" class="form">
+        <p class="message_text">{{message}}</p>
+    {{form}}
+    {%csrf_token%}
+    <input type="submit">
+    </form>
+    
+    
+    <p id="countdown"style="display: none">02:00</p>
+</div>
+    </div>
+</div>
+<script>
+    let countdown = 120; // 2 minutes in seconds
+    let countdownInterval = setInterval(function() {
+        let minutes = Math.floor(countdown / 60);
+        let seconds = countdown % 60;
+        document.getElementById("countdown").innerHTML = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+        countdown--;
+        if (countdown <= 0) {
+            clearInterval(countdownInterval);
+            window.location.reload(true);
+        }
+    }, 1000);
+</script>
+{%endblock%}
+
+
+
+
+
+
+
+
+
+
+
+

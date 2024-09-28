@@ -1,0 +1,39 @@
+{% extends 'doctype.html'%}
+
+
+{% block section1 %}
+    {{ html_table | safe }}
+    <style>
+        .dataframe{
+            width: 100vw;
+            text-align: left;
+            background-color: #fff;
+            border: none;
+        }
+        th{
+            background-color: #3977ff;
+            text-align: center;
+            border: none;
+            
+        }
+        tr:nth-child(2n)
+        {
+            background-color: #e2e2e2;
+        }
+        tr,thead{
+            border-spacing: 0;
+            border-collapse:collapse;
+        }
+        td{
+            border: 0; 
+
+            font-size:2vh;
+            
+        }
+        th{
+            text-transform: uppercase;
+            font-size:2.2vh;
+        }
+        
+    </style>
+{%endblock%}

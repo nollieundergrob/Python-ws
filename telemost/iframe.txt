@@ -1,0 +1,1 @@
+<iframe class="BroadcastViewerPlayer__Iframe_2UXT0Tm2gjuQs3IGZisja7" src="https://frontend.vh.yandex.ru/player/vFoS30c2Ywhk?from=telemost" allow="autoplay; fullscreen; accelerometer; gyroscope; picture-in-picture; encrypted-media" allowfullscreen=""></iframe>

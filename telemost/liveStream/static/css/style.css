@@ -1,0 +1,84 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #e2e2e2;
+    font-family: 'Rubik';
+}
+.form_container{
+    
+    max-width: 400px;
+    margin: 0 auto;
+    background-color: #fff;
+    border-radius: 8px;
+    
+}
+.wrapper_form{
+    padding: 30px;
+    border-radius: 8px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    
+}
+.message_text{
+    font-size: 12px;
+    color: red;
+    margin-top: 30px;
+}
+form input{
+    padding: 8px 25px;
+    border: none;
+    background-color: #e2e2e2;
+    width: 250px;
+    margin-top: 5px;
+    border-radius: 8px;
+}
+form input:focus{
+    outline: 0;
+    background-color: #e2e2e2;
+}
+label{
+    display: block;
+    margin-bottom: 5px;
+}
+form label{
+    margin-top: 30px;
+}
+.form label:first-child{
+    margin-top: 30px;
+}
+.form input[type=submit]{
+    margin-top: 30px;
+    background-color: #00aee8;
+    color: #fff;
+    font-weight: 600;
+}
+select{
+    padding: 8px 25px;
+    width: 250px;
+    background-color: #e2e2e2;
+    border: none;
+    border-radius: 8px;
+}
+select:focus{
+outline: 0;
+}
+.box_auth{
+    margin-top: 10vh;
+    filter: drop-shadow(0 0 3rem rgba(0, 0, 0, 0.2));
+}
+.errorlist{
+    font-size: 10px;
+    list-style: none;
+    color: red;
+
+}
+
+.dataframe{
+    width: 100vw;
+    text-align: center;
+}

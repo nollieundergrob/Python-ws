@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Simple Chat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        #chat-log {
+            padding: 10px;
+            border: 1px solid #ccc;
+            height: 300px;
+            overflow-y: scroll;
+        }
+        #message-input {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Simple Chat</h1>
+    <div id="chat-log"></div>
+    <input id="message-input" type="text" placeholder="Type a message...">
+    <button id="send-button">Send</button>
+
+    <script>
+        const chatLog = document.getElementById('chat-log');
+        const messageInput = document.getElementById('message-input');
+        const sendButton = document.getElementById('send-button');
+
+        let socket = new WebSocket('ws://' + window.location.host + '/ws/chat/');
+
+        socket.onmessage = function(event) {
+            const message = event.data;
+            const messageHTML = `<p>Гость : ${message.message}</p>`;
+            chatLog.innerHTML += messageHTML;
+            chatLog.scrollTop = chatLog.scrollHeight;
+        };
+
+        sendButton.addEventListener('click', function() {
+            const message = messageInput.value;
+            socket.send(JSON.stringify({ message: message }));
+            messageInput.value = '';
+        });
+    </script>
+</body>
+</html>

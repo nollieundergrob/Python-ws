@@ -1,0 +1,70 @@
+{% extends 'doctype.html'%}
+
+
+{% block section1 %}
+<div class="scrap_link">
+    <!-- <iframe class="BroadcastViewerPlayer__Iframe_2UXT0Tm2gjuQs3IGZisja7" src="https://frontend.vh.yandex.ru/player/vLO7rU--cHUQ?from=telemost" allow="autoplay; fullscreen; accelerometer; gyroscope; picture-in-picture; encrypted-media" allowfullscreen=""></iframe> -->
+    {{ iframe | safe }}
+
+
+    
+    <p id="countdown" style="display: none;"></p>
+</div>
+
+
+    
+
+</body>
+<script>
+    let counter = 0; // Initialize counter variable
+    let countdownElement = document.getElementById("countdown"); // Get the countdown element
+  
+    setInterval(function() {
+      let now = new Date();
+      let then = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 12, 10, 0);
+      if (now > then) {
+        then.setDate(now.getDate() + 1);
+      }
+      let timeout = then.getTime() - now.getTime();
+  
+      setTimeout(function() {
+        window.location.reload(true);
+      }, timeout);
+  
+      counter++;
+      if (counter >= 1800) { 
+        counter = 0;
+        window.location.reload(true);
+      }
+  
+      // Calculate time remaining until 12:10
+      let timeRemaining = Math.floor(timeout / 1000);
+      let minutes = Math.floor(timeRemaining / 60);
+      let seconds = timeRemaining % 60;
+  
+      // Update the countdown element
+      countdownElement.innerHTML = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+  
+      // Show the countdown element when the time is close to 12:10
+      if (timeRemaining <= 3600) { // 1 hour
+        countdownElement.style.display = "block";
+      } else {
+        countdownElement.style.display = "none";
+      }
+    }, 1000);
+  </script>
+
+<style>
+    iframe{
+        height: 100vh;
+        border: none;
+        outline: 0;
+    }
+    .scrap_link iframe{
+        width: 100vw;
+        
+        
+    }
+    
+</style>
+{% endblock %}
